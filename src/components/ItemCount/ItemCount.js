@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { products } from '../../data/data';
 
 
 export const ItemCount = ({ onAdd, initial, stock }) => {
@@ -45,10 +46,8 @@ export const ItemCount = ({ onAdd, initial, stock }) => {
         }}
         disabled={stock === 0 ? true : null}
       >
-        Añadir
+        Agregar al carrito
       </button>
     </div>
   );
 };
-
-export default ItemCount;

@@ -7,6 +7,7 @@ export const ItemDetailContainer = () => {
     const { idItem } = useParams();
     console.log(idItem);
 
+    /*
     const [myProduct, setMyProduct] = useState({});
     const myPromise = new Promise((resolve) => {
         setTimeout(() => {
@@ -19,6 +20,14 @@ export const ItemDetailContainer = () => {
         });
        
     }, [idItem]);
+*/
+    let myProduct;
+    for (let prod of products){
+        if (prod.id == idItem){
+            myProduct = prod;
+            break;
+        }
+    }
 
   return (
     <div>

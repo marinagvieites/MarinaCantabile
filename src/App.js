@@ -10,20 +10,22 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <NavBar  />
-      <Routes>
-        <Route path='/' element={<ItemListContainer bienvenida="Bienvenidos a la tienda online de 🎹marinacantabile🎹" />} />
-        <Route path="category/:idCategory" element={<ItemListContainer bienvenida="Bienvenidos a la tienda online de 🎹marinacantabile🎹" />} />
-        <Route path="item/:idItem" element={<ItemDetailContainer />} />
-        
-      </Routes>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<ItemListContainer bienvenida="Bienvenidos a la tienda online de 🎹marinacantabile🎹" />} />
+          <Route path="category/:idCategory" element={<ItemListContainer bienvenida="Bienvenidos a la tienda online de 🎹marinacantabile🎹" />} />
+          <Route path="item/:idItem" element={<ItemDetailContainer />} />
+          <Route path='*' element={<h1>404 NOT FOUND</h1>} />
+
+
+        </Routes>
       </BrowserRouter>
-      
+
       <div className='pepe'></div>
 
-    
-  
-  </div> );
+
+
+    </div>);
 }
 
 

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import "./Item.css";
-
-/*
+import { ItemCount } from '../ItemCount/ItemCount';
+import { ItemDetailContainer } from '../ItemDetailContainer/ItemDetailContainer';
+import { Link } from "react-router-dom";
+/* 
 export const Item = ({ name, img, stock, price, category }) => {
 
   return (<div className="card">
@@ -15,6 +17,7 @@ export const Item = ({ name, img, stock, price, category }) => {
 }
 */
 
+
  export const Item = ({ producto }) => {
   return (
     <div className="card">
@@ -23,20 +26,21 @@ export const Item = ({ name, img, stock, price, category }) => {
         className="card--img" width={100} height={100} src={producto.img} alt={producto.name}
       />
       <div className="card--price">$ {producto.price}</div>
-      {/* <ItemCount stock={producto.stock} /> */}
+      <ItemCount stock={producto.stock} onAdd={onAdd} initial={1}/> 
       < DescriptionButton description={producto.description} />
     </div>
   );
+  function onAdd(){
+    console.log('Agregar al carrito');
+  }
   function DescriptionButton ({ description })  {
     const [descriptionState, setDescriptionState] = useState(0);
     const actionMore = () => {
       setDescriptionState(1);
     };
-    const descriptionComponent =  (descriptionState >=1) ? <div className="descriptionContent">{description}</div> : <div className="descriptionContent"></div>;
     return (
       <div className= "descriptionButton">
-       {descriptionComponent}
-        <button className="card--more" onClick={actionMore}> Ver Más </button>
+        <Link to={`/item/${producto.id}`}> Ver detalle </Link>
       </div>
     )
     
